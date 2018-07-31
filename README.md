@@ -1,6 +1,6 @@
 # sdcard_test
 Small bash script to test SD cards 
 
-Requies:
+requires:
 * dd
 * gnuplot
