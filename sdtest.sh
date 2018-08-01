@@ -20,7 +20,7 @@ for((i=1; i < $SIZE; i++)); do
         MIN=1000
         SM=0.0
         for ((a=0; a < $COUNT; a++)); do
-                TIME=$(dd if=/dev/$DEVICE of=/dev/null bs=512 skip=$i count=1 2>&1 | awk '/скопировано/ {print $4}')
+                TIME=$(dd if=/dev/$DEVICE of=/dev/null iflag=direct bs=512 skip=$i count=1 2>&1 | awk '/скопировано/ {print $4}')
                 TIME=$(echo "${TIME//,/$'.'}")
                 if (( $(echo "$TIME > $MAX" | bc -l) )); then
                         MAX=$TIME
